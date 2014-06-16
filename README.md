@@ -24,7 +24,7 @@ Hadley Wickham paper: [Tidy Data, Journal of Statistical Software](http://vita.h
 Note: An additional readme file is available within the unzipped data directory. This readme describes the file structure of the source data.
 
 ### Manual Processing:
-The downloaded zip file was placed in the working directory and unzipped to sub-directory "UCI HAR Dataset".  The name of this sub-directory is saved in the `data_directory` variable in the analysis R script.
+The downloaded zip file was placed in the working directory and unzipped to sub-directory "UCI HAR Dataset".  The name of this sub-directory is saved in the `data_directory` variable in the `run_analysis.R` script.
 
 ### run_analysis.R script:
 The run_analysis.R script is broken into 4 sections, each addressing a subset of the tasks required by the Course Project prompt.  
