@@ -72,8 +72,9 @@ train_test <- rbind(train, test)
 ######## Section 2 ########
 ## Extract only the measurements on the mean and standard deviation for each measurement.
 
-## get columns with mean() and std()
-filter <- grepl("mean()", names(train_test)) + grepl("std()", names(train_test))
+## get columns with mean() and std(). 
+## Create filter from features list as text has not been altered for col names yet
+filter <- (grepl("mean()", features[,2]) + grepl("std()", features[,2])
 ## downselect to first subject, activity and columns that pass the filter 
 train_test_tidy <- cbind(train_test[,1:2], train_test[,filter==TRUE])
 
@@ -87,3 +88,7 @@ library(reshape2)
 melted <- melt(train_test_tidy, id.vars=c("subject", "activity"))
 ## dcast by subject & activity, taking the mean of each variable
 reshaped <- dcast(melted, subject + activity ~ variable, mean)
+
+######## Section 4 ########
+## write reshaped table to txt file for submission
+write.csv(reshaped, file="submission_data.txt", row.names=FALSE)
