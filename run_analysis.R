@@ -77,7 +77,6 @@ train_test <- rbind(train, test)
 ## Extract only the measurements on the mean and standard deviation for each measurement.
 
 ## get columns with _mean_ and _std_. Specifically eliminates meanFreq values
-## Create filter from features list as text has not been altered for col names yet
 filter <- ((grepl("_mean", names(train_test)) & !grepl("_meanF", names(train_test))) + grepl("_std", names(train_test)))
 ## downselect to first subject, activity and columns that pass the filter 
 train_test_tidy <- cbind(train_test[,1:2], train_test[,filter==TRUE])
