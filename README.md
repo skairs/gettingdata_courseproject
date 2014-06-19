@@ -58,9 +58,9 @@ The train and test data sets are each broken into three files--one each for subj
 The resulting `train` and `test` data sets are combined into the `train_test` data set using `rbind`.
 
 #### Section 2  
-A logical filter, `filter`, is created using `grepl()` to search the `features` vector for names including the text "mean()" or "std()".  The `features` vector is used instead of `names(train_test)` because the features names are altered in coercing them to column names (e.g. spaces and special characters are replaced with periods).  
+A logical filter, `filter`, is created using `grepl()` to search the `names(train_test)` vector for names including the text "mean" or "std".  
 
-*Note: Searching for "mean()" and "std()" is important to avoid the inclusion of features with the text "meanFreq", which do not meet the project criterion for Section 2.*
+*Note: Filter specifically excludes text including "meanF" to exclude the "meanFreq" measurements, which do not meet the project criterion for Section 2.*
 
 The `train_test_tidy` data set is a downselection of the `train_test` set, retaining the columns for subject, activity and each features that meets the `filter` criteria as described above.
 

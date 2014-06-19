@@ -18,6 +18,10 @@ activities <- read.table(paste(data_directory, "activity_labels.txt", sep="/"), 
 ## Column names (features) are stored in the second column of features.txt file in root of data directory
 features <- read.table(paste(data_directory, "features.txt", sep="/"), header=FALSE, 
                        colClasses="character")
+## reformat variable names: change "-" to "_"; remove "()" 
+features[,2] <- gsub("-", "_", features[,2])
+features[,2] <- gsub("\\(\\)", "", features[,2])
+
 
 ## Read in training data set.  Data set is stored in 3 files: subject_train.txt, y_train.txt, X_train.txt
 ## See readMe in data directory for description of data files
@@ -72,9 +76,9 @@ train_test <- rbind(train, test)
 ######## Section 2 ########
 ## Extract only the measurements on the mean and standard deviation for each measurement.
 
-## get columns with mean() and std(). 
+## get columns with _mean_ and _std_. Specifically eliminates meanFreq values
 ## Create filter from features list as text has not been altered for col names yet
-filter <- (grepl("mean()", features[,2]) + grepl("std()", features[,2])
+filter <- ((grepl("_mean", features[,2]) | grepl("_meanF", features[,2])) + grepl("_std", features[,2]))
 ## downselect to first subject, activity and columns that pass the filter 
 train_test_tidy <- cbind(train_test[,1:2], train_test[,filter==TRUE])
 
