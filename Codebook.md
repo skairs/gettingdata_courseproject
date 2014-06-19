@@ -159,7 +159,7 @@ The following measurements have been normalized, and are therefore unitless.  Th
 `test_x` - measurement data, testing data set, table read from `test/X_test.txt` file  
 `test` - assembled testing data set  
 `train_test` - combined training & testing data set  
-`filter` - logical filter selecting columns with "mean()" or "std()" in their header  
+`filter` - logical filter selecting columns with "mean" or "std" in their header  
 `train_test_tidy` - downselected training & testing data set, filtered using `filter` (see above)  
 `melted` - molten `train_test_tidy` dataframe, using subject & activity as id variables  
 `reshaped` - recast dataframe, by subject + activity, function = mean

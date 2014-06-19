@@ -45,7 +45,7 @@ The data directory is specified as "UCI HAR Dataset", a sub-directory of the wor
 
 The descriptive activity names are read, as character, from `activity_labels.txt` into the `activities` variable.  Column 2 will be used to assign the factor level names for the train & test sets.
 
-The descriptive feature names are read, as character, from `feature.txt` into the `features` variable.  Column 1 will be used to assign the column names for the train & test sets.
+The descriptive feature names are read, as character, from `feature.txt` into the `features` variable.  Column 2 will be used to assign the column names for the train & test sets.
 
 The train and test data sets are each broken into three files--one each for subject, y and x where subject is the test subject ID, y is the activity label and x are the measurements for each feature.  To import and assemble each data set, the following steps must be taken:  
 
